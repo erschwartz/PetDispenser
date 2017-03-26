@@ -18,6 +18,10 @@
 		8446925F1E8859BF008711E1 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 844692531E884117008711E1 /* OpenSans-Regular.ttf */; };
 		844692601E8859BF008711E1 /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 844692541E884117008711E1 /* OpenSans-Semibold.ttf */; };
 		844692611E8859BF008711E1 /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 844692551E884117008711E1 /* OpenSans-SemiboldItalic.ttf */; };
+		8446926E1E885E03008711E1 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844692691E885DE4008711E1 /* Charts.framework */; };
+		844692701E887FB2008711E1 /* NewUserViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446926F1E887FB2008711E1 /* NewUserViewControllerOne.swift */; };
+		844692721E887FC3008711E1 /* NewUserViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */; };
+		844692741E887FD1008711E1 /* NewUserViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */; };
 		E7A30F04011761FF00000000 /* UserPoolNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2983A2DAC900000000 /* UserPoolNewPasswordViewController.swift */; };
 		E7A30F0404ADE05E00000000 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29A1CD7A3C00000000 /* UtilityFunctions.swift */; };
 		E7A30F04071EEC5500000000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E29011D052D00000000 /* Main.storyboard */; };
@@ -70,6 +74,30 @@
 		E7A30F04FBFE40D800000000 /* NoSQLTableListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29DDA7D42B00000000 /* NoSQLTableListViewController.swift */; };
 		E7A30F04FEBCA13700000000 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD70E2971B0811500000000 /* Security.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		844692681E885DE4008711E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844692621E885DE3008711E1 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F241D8110E600722320;
+			remoteInfo = Charts;
+		};
+		8446926A1E885DE4008711E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844692621E885DE3008711E1 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06B120D51D811E6200D14B02;
+			remoteInfo = ChartsRealm;
+		};
+		8446926C1E885DE4008711E1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844692621E885DE3008711E1 /* Charts.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 06165F2E1D8110E600722320;
+			remoteInfo = ChartsTests;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		FAF5FAC90000000000000000 /* Embed Frameworks */ = {
@@ -150,6 +178,10 @@
 		844692541E884117008711E1 /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		844692551E884117008711E1 /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		844692561E884202008711E1 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InitialViewController.swift; path = MySampleApp/App/SignIn/InitialViewController.swift; sourceTree = SOURCE_ROOT; };
+		844692621E885DE3008711E1 /* Charts.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Charts.xcodeproj; path = ../../Charts/Charts.xcodeproj; sourceTree = "<group>"; };
+		8446926F1E887FB2008711E1 /* NewUserViewControllerOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerOne.swift; sourceTree = SOURCE_ROOT; };
+		844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerTwo.swift; sourceTree = SOURCE_ROOT; };
+		844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerThree.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +189,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8446926E1E885E03008711E1 /* Charts.framework in Frameworks */,
 				E7A30F045105B41800000001 /* AWSCognitoIdentityProvider.framework in Frameworks */,
 				E7A30F04C1F1DC9000000001 /* AWSDynamoDB.framework in Frameworks */,
 				E7A30F04D2943AE700000001 /* AWSCore.framework in Frameworks */,
@@ -176,6 +209,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		844692631E885DE3008711E1 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				844692691E885DE4008711E1 /* Charts.framework */,
+				8446926B1E885DE4008711E1 /* ChartsRealm.framework */,
+				8446926D1E885DE4008711E1 /* ChartsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		B401C9790CE7DA0200000000 /* UserIdentity */ = {
 			isa = PBXGroup;
 			children = (
@@ -222,6 +265,9 @@
 				1DD70E29A9F2A40100000000 /* Launch Screen.storyboard */,
 				1DD70E29011D052D00000000 /* Main.storyboard */,
 				1DD70E29280EF49F00000000 /* MainViewController.swift */,
+				8446926F1E887FB2008711E1 /* NewUserViewControllerOne.swift */,
+				844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */,
+				844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */,
 				B401C97994D1E94200000000 /* SignIn */,
 				B401C9798F85812A00000000 /* SupportingFiles */,
 				B401C979980D281A00000000 /* Utility */,
@@ -261,6 +307,7 @@
 		B401C9797D7B042200000000 /* mainGroup */ = {
 			isa = PBXGroup;
 			children = (
+				844692621E885DE3008711E1 /* Charts.xcodeproj */,
 				8446924C1E884117008711E1 /* OpenSans-Bold.ttf */,
 				8446924D1E884117008711E1 /* OpenSans-BoldItalic.ttf */,
 				8446924E1E884117008711E1 /* OpenSans-ExtraBold.ttf */,
@@ -400,6 +447,11 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
 				LastUpgradeCheck = 0820;
+				TargetAttributes = {
+					E66DC04E0000000000000000 = {
+						LastSwiftMigration = 0810;
+					};
+				};
 			};
 			buildConfigurationList = 218C37090000000000000000 /* Build configuration list for PBXProject "MySampleApp" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -412,12 +464,42 @@
 			mainGroup = B401C9797D7B042200000000 /* mainGroup */;
 			productRefGroup = B401C9796EC134A800000000 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 844692631E885DE3008711E1 /* Products */;
+					ProjectRef = 844692621E885DE3008711E1 /* Charts.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				E66DC04E0000000000000000 /* MySampleApp */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		844692691E885DE4008711E1 /* Charts.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = Charts.framework;
+			remoteRef = 844692681E885DE4008711E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8446926B1E885DE4008711E1 /* ChartsRealm.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ChartsRealm.framework;
+			remoteRef = 8446926A1E885DE4008711E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		8446926D1E885DE4008711E1 /* ChartsTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = ChartsTests.xctest;
+			remoteRef = 8446926C1E885DE4008711E1 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		8A032D2C0000000000000000 /* Resources */ = {
@@ -482,6 +564,7 @@
 			files = (
 				E7A30F04F36D39EE00000000 /* UserPoolSignUpViewController.swift in Sources */,
 				E7A30F046638247700000000 /* NoSQLQueryResultViewController.swift in Sources */,
+				844692721E887FC3008711E1 /* NewUserViewControllerTwo.swift in Sources */,
 				E7A30F04011761FF00000000 /* UserPoolNewPasswordViewController.swift in Sources */,
 				E7A30F04F436E84900000000 /* Feeding.swift in Sources */,
 				E7A30F044F0CC4E300000000 /* SignInViewController.swift in Sources */,
@@ -501,6 +584,8 @@
 				E7A30F04771A06EE00000000 /* AWSConfiguration.swift in Sources */,
 				844692571E884202008711E1 /* InitialViewController.swift in Sources */,
 				E7A30F042B98A26600000000 /* SignInViewControllerExtensions.swift in Sources */,
+				844692741E887FD1008711E1 /* NewUserViewControllerThree.swift in Sources */,
+				844692701E887FB2008711E1 /* NewUserViewControllerOne.swift in Sources */,
 				E7A30F04524B487D00000000 /* NoSQLSampleDataGenerator.swift in Sources */,
 				E7A30F0404ADE05E00000000 /* UtilityFunctions.swift in Sources */,
 				E7A30F0480107C9D00000000 /* NoSQLTableViewController.swift in Sources */,

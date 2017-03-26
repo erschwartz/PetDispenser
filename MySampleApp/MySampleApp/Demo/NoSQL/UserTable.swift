@@ -64,6 +64,21 @@ class UserTable: NSObject, Table {
         return "Find Item with userId = \(hashKeyValue)."
     }
     
+    func checkIfUserInTable(_ completionHandler: @escaping (_ response: AWSDynamoDBPaginatedOutput?, _ error: NSError?) -> Void) {
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        let queryExpression = AWSDynamoDBQueryExpression()
+        
+        queryExpression.keyConditionExpression = "#userId = :userId"
+        queryExpression.expressionAttributeNames = ["#userId": "userId"]
+        queryExpression.expressionAttributeValues = [":userId": AWSIdentityManager.default().identityId!]
+        
+        objectMapper.query(User.self, expression: queryExpression) { (response: AWSDynamoDBPaginatedOutput?, error: Error?) in
+            DispatchQueue.main.async(execute: {
+                completionHandler(response, error as? NSError)
+            })
+        }
+    }
+    
     func getItemWithCompletionHandler(_ completionHandler: @escaping (_ response: AWSDynamoDBObjectModel?, _ error: NSError?) -> Void) {
         let objectMapper = AWSDynamoDBObjectMapper.default()
         objectMapper.load(User.self, hashKey: AWSIdentityManager.default().identityId!, rangeKey: nil) { (response: AWSDynamoDBObjectModel?, error: Error?) in
@@ -107,6 +122,33 @@ class UserTable: NSObject, Table {
                 completionHandler(response, error as? NSError)
             })
         }
+    }
+    
+    func insertUserIntoTable(user: User, _ completionHandler: @escaping (_ errors: [NSError]?) -> Void) {
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        var errors: [NSError] = []
+        let group: DispatchGroup = DispatchGroup()
+        
+        group.enter()
+        
+        
+        objectMapper.save(user, completionHandler: {(error: Error?) -> Void in
+            if let error = error as? NSError {
+                DispatchQueue.main.async(execute: {
+                    errors.append(error)
+                })
+            }
+            group.leave()
+        })
+        
+        group.notify(queue: DispatchQueue.main, execute: {
+            if errors.count > 0 {
+                completionHandler(errors)
+            }
+            else {
+                completionHandler(nil)
+            }
+        })
     }
     
     func insertSampleDataWithCompletionHandler(_ completionHandler: @escaping (_ errors: [NSError]?) -> Void) {
