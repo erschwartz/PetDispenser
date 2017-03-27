@@ -113,6 +113,21 @@ class PetTable: NSObject, Table {
         }
     }
     
+    func checkIfPetInTable(petId: String, _ completionHandler: @escaping (_ response: AWSDynamoDBPaginatedOutput?, _ error: NSError?) -> Void) {
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        let queryExpression = AWSDynamoDBQueryExpression()
+        
+        queryExpression.keyConditionExpression = "#userId = :userId AND #petId = :petId"
+        queryExpression.expressionAttributeNames = ["#userId": "userId", "#petId" : "petId"]
+        queryExpression.expressionAttributeValues = [":userId": AWSIdentityManager.default().identityId!, ":petId" : petId]
+        
+        objectMapper.query(Pet.self, expression: queryExpression) { (response: AWSDynamoDBPaginatedOutput?, error: Error?) in
+            DispatchQueue.main.async(execute: {
+                completionHandler(response, error as? NSError)
+            })
+        }
+    }
+    
     func insertPetIntoTable(pet: Pet, _ completionHandler: @escaping (_ errors: [NSError]?) -> Void) {
         let objectMapper = AWSDynamoDBObjectMapper.default()
         var errors: [NSError] = []

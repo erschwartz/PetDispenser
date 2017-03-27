@@ -82,6 +82,12 @@ class MainViewController: UIViewController {
         self.present(viewController, animated: true, completion: nil)
     }
     
+    func presentSettingsViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "Settings")
+        self.present(viewController, animated: true, completion: nil)
+    }
+    
     // MARK: Utility functions
     
     func handleLogout() {
@@ -102,6 +108,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func didSelectSettings(_ sender: Any) {
+        presentSettingsViewController()
     }
     
     @IBAction func didSelectAddFood(_ sender: Any) {

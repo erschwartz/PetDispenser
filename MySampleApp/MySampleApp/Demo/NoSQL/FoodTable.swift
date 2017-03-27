@@ -113,6 +113,21 @@ class FoodTable: NSObject, Table {
         }
     }
     
+    func checkIfFoodInTable(foodId: String, _ completionHandler: @escaping (_ response: AWSDynamoDBPaginatedOutput?, _ error: NSError?) -> Void) {
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        let queryExpression = AWSDynamoDBQueryExpression()
+        
+        queryExpression.keyConditionExpression = "#id = :id"
+        queryExpression.expressionAttributeNames = ["#id": "id"]
+        queryExpression.expressionAttributeValues = [":id": foodId]
+        
+        objectMapper.query(Food.self, expression: queryExpression) { (response: AWSDynamoDBPaginatedOutput?, error: Error?) in
+            DispatchQueue.main.async(execute: {
+                completionHandler(response, error as? NSError)
+            })
+        }
+    }
+    
     func insertFoodIntoTable(food: Food, _ completionHandler: @escaping (_ errors: [NSError]?) -> Void) {
         let objectMapper = AWSDynamoDBObjectMapper.default()
         var errors: [NSError] = []
