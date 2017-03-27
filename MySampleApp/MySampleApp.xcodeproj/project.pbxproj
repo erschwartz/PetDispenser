@@ -23,6 +23,8 @@
 		844692721E887FC3008711E1 /* NewUserViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */; };
 		844692741E887FD1008711E1 /* NewUserViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */; };
 		844692761E888CF7008711E1 /* NewUserViewControllerFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692751E888CF7008711E1 /* NewUserViewControllerFour.swift */; };
+		844692791E894A28008711E1 /* HPet.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844692781E894A28008711E1 /* HPet.storyboard */; };
+		8446927E1E894D65008711E1 /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446927D1E894D65008711E1 /* AddFoodViewController.swift */; };
 		E7A30F04011761FF00000000 /* UserPoolNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2983A2DAC900000000 /* UserPoolNewPasswordViewController.swift */; };
 		E7A30F0404ADE05E00000000 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29A1CD7A3C00000000 /* UtilityFunctions.swift */; };
 		E7A30F04071EEC5500000000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E29011D052D00000000 /* Main.storyboard */; };
@@ -184,6 +186,8 @@
 		844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerTwo.swift; sourceTree = SOURCE_ROOT; };
 		844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerThree.swift; sourceTree = SOURCE_ROOT; };
 		844692751E888CF7008711E1 /* NewUserViewControllerFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerFour.swift; sourceTree = SOURCE_ROOT; };
+		844692781E894A28008711E1 /* HPet.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = HPet.storyboard; sourceTree = SOURCE_ROOT; };
+		8446927D1E894D65008711E1 /* AddFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -266,6 +270,8 @@
 				1DD70E2926521A9100000000 /* Images.xcassets */,
 				1DD70E29A9F2A40100000000 /* Launch Screen.storyboard */,
 				1DD70E29011D052D00000000 /* Main.storyboard */,
+				844692781E894A28008711E1 /* HPet.storyboard */,
+				8446927D1E894D65008711E1 /* AddFoodViewController.swift */,
 				1DD70E29280EF49F00000000 /* MainViewController.swift */,
 				8446926F1E887FB2008711E1 /* NewUserViewControllerOne.swift */,
 				844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */,
@@ -524,6 +530,7 @@
 				8446925F1E8859BF008711E1 /* OpenSans-Regular.ttf in Resources */,
 				E7A30F04071EEC5500000000 /* Main.storyboard in Resources */,
 				8446925C1E8859BF008711E1 /* OpenSans-Italic.ttf in Resources */,
+				844692791E894A28008711E1 /* HPet.storyboard in Resources */,
 				8446925B1E8859BF008711E1 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 				8446925A1E8859BF008711E1 /* OpenSans-ExtraBold.ttf in Resources */,
 			);
@@ -579,6 +586,7 @@
 				E7A30F04F2BEA0CE00000000 /* User.swift in Sources */,
 				E7A30F0431018C6C00000000 /* FeedingTable.swift in Sources */,
 				E7A30F041A7F5B9A00000000 /* NoSQLTableFactory.swift in Sources */,
+				8446927E1E894D65008711E1 /* AddFoodViewController.swift in Sources */,
 				E7A30F04CA6ED38900000000 /* UserPoolMFAViewController.swift in Sources */,
 				E7A30F043B11ABD100000000 /* UserTable.swift in Sources */,
 				E7A30F04793C5A0F00000000 /* AppDelegate.swift in Sources */,

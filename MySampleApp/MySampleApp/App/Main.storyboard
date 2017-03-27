@@ -31,7 +31,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79Q-E2-YaT">
-                                <rect key="frame" x="116.66666666666669" y="28" width="181" height="41"/>
+                                <rect key="frame" x="117" y="28" width="181" height="41"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="181" id="Jje-Mv-KuU"/>
                                     <constraint firstAttribute="height" constant="41" id="ept-vg-Ohs"/>
@@ -81,7 +81,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SpJ-Cf-pSG">
-                                <rect key="frame" x="186.66666666666666" y="680" width="41" height="44"/>
+                                <rect key="frame" x="187" y="680" width="41" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="LfA-EN-2fW"/>
                                     <constraint firstAttribute="width" constant="41" id="zXP-eX-KoJ"/>

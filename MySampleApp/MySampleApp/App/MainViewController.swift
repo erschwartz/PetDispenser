@@ -30,6 +30,8 @@ class MainViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        presentAddFoodViewController()
+        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "Back", style: .plain, target: nil, action: nil)
         
         // Default theme settings.
@@ -73,6 +75,12 @@ class MainViewController: UITableViewController {
         
         setupRightBarButtonItem()
         
+    }
+    
+    func presentAddFoodViewController() {
+        let storyboard = UIStoryboard(name: "HPet", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "AddFood")
+        self.present(viewController, animated: true, completion: nil)
     }
     
     deinit {
