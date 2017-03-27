@@ -121,7 +121,7 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
     }
     
     func presentAddFoodViewController() {
-        let storyboard = UIStoryboard(name: "HPet", bundle: nil)
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "AddFood")
         self.present(viewController, animated: true, completion: nil)
     }
