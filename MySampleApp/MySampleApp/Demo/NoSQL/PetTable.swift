@@ -113,6 +113,33 @@ class PetTable: NSObject, Table {
         }
     }
     
+    func insertPetIntoTable(pet: Pet, _ completionHandler: @escaping (_ errors: [NSError]?) -> Void) {
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        var errors: [NSError] = []
+        let group: DispatchGroup = DispatchGroup()
+        
+        group.enter()
+        
+        
+        objectMapper.save(pet, completionHandler: {(error: Error?) -> Void in
+            if let error = error as? NSError {
+                DispatchQueue.main.async(execute: {
+                    errors.append(error)
+                })
+            }
+            group.leave()
+        })
+        
+        group.notify(queue: DispatchQueue.main, execute: {
+            if errors.count > 0 {
+                completionHandler(errors)
+            }
+            else {
+                completionHandler(nil)
+            }
+        })
+    }
+    
     func insertSampleDataWithCompletionHandler(_ completionHandler: @escaping (_ errors: [NSError]?) -> Void) {
         let objectMapper = AWSDynamoDBObjectMapper.default()
         var errors: [NSError] = []

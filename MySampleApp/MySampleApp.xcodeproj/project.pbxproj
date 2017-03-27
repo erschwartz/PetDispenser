@@ -22,6 +22,7 @@
 		844692701E887FB2008711E1 /* NewUserViewControllerOne.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446926F1E887FB2008711E1 /* NewUserViewControllerOne.swift */; };
 		844692721E887FC3008711E1 /* NewUserViewControllerTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */; };
 		844692741E887FD1008711E1 /* NewUserViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */; };
+		844692761E888CF7008711E1 /* NewUserViewControllerFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692751E888CF7008711E1 /* NewUserViewControllerFour.swift */; };
 		E7A30F04011761FF00000000 /* UserPoolNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2983A2DAC900000000 /* UserPoolNewPasswordViewController.swift */; };
 		E7A30F0404ADE05E00000000 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29A1CD7A3C00000000 /* UtilityFunctions.swift */; };
 		E7A30F04071EEC5500000000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E29011D052D00000000 /* Main.storyboard */; };
@@ -182,6 +183,7 @@
 		8446926F1E887FB2008711E1 /* NewUserViewControllerOne.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerOne.swift; sourceTree = SOURCE_ROOT; };
 		844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerTwo.swift; sourceTree = SOURCE_ROOT; };
 		844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerThree.swift; sourceTree = SOURCE_ROOT; };
+		844692751E888CF7008711E1 /* NewUserViewControllerFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerFour.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -268,6 +270,7 @@
 				8446926F1E887FB2008711E1 /* NewUserViewControllerOne.swift */,
 				844692711E887FC3008711E1 /* NewUserViewControllerTwo.swift */,
 				844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */,
+				844692751E888CF7008711E1 /* NewUserViewControllerFour.swift */,
 				B401C97994D1E94200000000 /* SignIn */,
 				B401C9798F85812A00000000 /* SupportingFiles */,
 				B401C979980D281A00000000 /* Utility */,
@@ -580,6 +583,7 @@
 				E7A30F043B11ABD100000000 /* UserTable.swift in Sources */,
 				E7A30F04793C5A0F00000000 /* AppDelegate.swift in Sources */,
 				E7A30F04A37C515F00000000 /* UserPoolForgotPasswordViewController.swift in Sources */,
+				844692761E888CF7008711E1 /* NewUserViewControllerFour.swift in Sources */,
 				E7A30F0460918F8200000000 /* DemoFeature.swift in Sources */,
 				E7A30F04771A06EE00000000 /* AWSConfiguration.swift in Sources */,
 				844692571E884202008711E1 /* InitialViewController.swift in Sources */,
