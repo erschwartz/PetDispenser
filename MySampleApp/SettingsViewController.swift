@@ -19,6 +19,7 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var petNameTextField: UITextField!
     @IBOutlet weak var feedingFrequencyTextField: UITextField!
     @IBOutlet weak var foodAmountTextField: UITextField!
+    @IBOutlet weak var petFoodLabel: UILabel!
     
     @IBOutlet weak var pushNotificationsSwitch: UISwitch!
     
@@ -42,6 +43,10 @@ class SettingsViewController: UIViewController {
         feedingFrequencyTextField.text = "\(4)"
     }
     
+    func setFoodLabel() {
+        petFoodLabel.text = food?._name
+    }
+    
     // MARK: DB Functions
     
     func getUserFromDb() {
@@ -51,7 +56,7 @@ class SettingsViewController: UIViewController {
                 return
             }
             
-            let dict = result?.items[0].dictionaryWithValues(forKeys: ["userId", "firstName", "lastName", "currentFoodId", "petIds", "currentFoodAmounts"])
+            let dict = result?.items[0].dictionaryWithValues(forKeys: ["userId", "firstName", "lastName", "currentFoodId", "petIds", "currentFoodAmounts", "machineId"])
             
             self.user = User()
             self.user?._userId = dict?["userId"] as? String
@@ -61,6 +66,7 @@ class SettingsViewController: UIViewController {
             self.user?._petIds = dict?["petIds"] as? Array
             self.user?._currentFoodAmounts = dict?["currentFoodAmounts"] as? Dictionary
             self.user?._email = "No Email Supplied"
+            self.user?._machineId = dict?["machineId"] as? String
             
             self.getPetFromDb()
             self.getFoodFromDb()
@@ -122,6 +128,8 @@ class SettingsViewController: UIViewController {
             self.food?._protein = dict?["protein"] as? NSNumber
             self.food?._servingSize = dict?["servingSize"] as? NSNumber
             self.food?._sodium = dict?["sodium"] as? NSNumber
+            
+            self.setFoodLabel()
         })
     }
     
@@ -194,5 +202,10 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func didSelectChangePetFood(_ sender: Any) {
+        self.performSegue(withIdentifier: "showFoodList", sender: self)
+    }
+    
+    @IBAction func didSelectBackButton(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 }
