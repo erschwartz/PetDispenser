@@ -43,7 +43,7 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
         fillTableView()
     }
     
-    func dimissController() {
+    func dismissController() {
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -58,6 +58,7 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
     }
     
     @IBAction func didSelectAddPetFood(_ sender: Any) {
+        presentAddFoodViewController()
     }
     
     // MARK: Continuation Functions
@@ -83,9 +84,12 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
     }
     
     func saveItemsToDb() {
+        var foundError = false
+        
         self.userTable?.insertUserIntoTable(user: user!, {(errors: [NSError]?) -> Void in
             var message: String = "SUCCESS: Created user."
             if errors != nil {
+                foundError = true
                 message = "ERROR: Failed to create user."
             }
             
@@ -95,11 +99,31 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
         self.petTable?.insertPetIntoTable(pet: pet!, {(errors: [NSError]?) -> Void in
             var message: String = "SUCCESS: Created pet."
             if errors != nil {
+                foundError = true
                 message = "ERROR: Failed to create pet."
             }
             
             print(message)
         })
+        
+        if (!foundError) {
+            UIAlertView(title: "Sucess!",
+                        message: "Your account information has been updated.",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        } else {
+            UIAlertView(title: "Error",
+                        message: "We were unable to create your account.",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+        }
+    }
+    
+    func presentAddFoodViewController() {
+        let storyboard = UIStoryboard(name: "HPet", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "AddFood")
+        self.present(viewController, animated: true, completion: nil)
     }
 
     // MARK: Table view functions
