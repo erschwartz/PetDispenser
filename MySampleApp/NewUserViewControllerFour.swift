@@ -47,6 +47,8 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
         self.dismiss(animated: true, completion: nil)
     }
     
+    // MARK: Utility functions
+    
     func presentFeedingTimeViewController() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "FeedingTime") as? FeedingTimeViewController
@@ -54,6 +56,10 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
             viewController?.feedingTimes = foodTimes as [Int]
         }
         self.present(viewController!, animated: true, completion: nil)
+    }
+    
+    func deselectAllButtons() {
+        
     }
     
     // MARK: IB Actions

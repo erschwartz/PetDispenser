@@ -23,6 +23,7 @@ class Feeding: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _date: NSNumber?
     var _foodName: String?
     var _time: NSNumber?
+    var _foodId: String?
     
     class func dynamoDBTableName() -> String {
 
@@ -47,6 +48,7 @@ class Feeding: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
                "_date" : "date",
                "_foodName" : "foodName",
                "_time" : "time",
+               "_foodId" : "foodId",
         ]
     }
 }

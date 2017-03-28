@@ -27,6 +27,7 @@
 		84832BCD1E8992BA00D99B90 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832BCC1E8992BA00D99B90 /* SettingsViewController.swift */; };
 		84832BCF1E89A86500D99B90 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832BCE1E89A86500D99B90 /* FoodListViewController.swift */; };
 		84A80DBC1E8AB4D9009DC9AA /* FeedingTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A80DBB1E8AB4D9009DC9AA /* FeedingTimeViewController.swift */; };
+		84A80DC11E8AE776009DC9AA /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A80DC01E8AE776009DC9AA /* FoodTableViewCell.swift */; };
 		E7A30F04011761FF00000000 /* UserPoolNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2983A2DAC900000000 /* UserPoolNewPasswordViewController.swift */; };
 		E7A30F0404ADE05E00000000 /* UtilityFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E29A1CD7A3C00000000 /* UtilityFunctions.swift */; };
 		E7A30F04071EEC5500000000 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DD70E29011D052D00000000 /* Main.storyboard */; };
@@ -192,6 +193,7 @@
 		84832BCC1E8992BA00D99B90 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		84832BCE1E89A86500D99B90 /* FoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = SOURCE_ROOT; };
 		84A80DBB1E8AB4D9009DC9AA /* FeedingTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingTimeViewController.swift; sourceTree = SOURCE_ROOT; };
+		84A80DC01E8AE776009DC9AA /* FoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,7 @@
 				1DD70E2926521A9100000000 /* Images.xcassets */,
 				1DD70E29A9F2A40100000000 /* Launch Screen.storyboard */,
 				1DD70E29011D052D00000000 /* Main.storyboard */,
+				84A80DC01E8AE776009DC9AA /* FoodTableViewCell.swift */,
 				84A80DBB1E8AB4D9009DC9AA /* FeedingTimeViewController.swift */,
 				84832BCE1E89A86500D99B90 /* FoodListViewController.swift */,
 				1DD70E29280EF49F00000000 /* MainViewController.swift */,
@@ -578,6 +581,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7A30F04F36D39EE00000000 /* UserPoolSignUpViewController.swift in Sources */,
+				84A80DC11E8AE776009DC9AA /* FoodTableViewCell.swift in Sources */,
 				E7A30F046638247700000000 /* NoSQLQueryResultViewController.swift in Sources */,
 				844692721E887FC3008711E1 /* NewUserViewControllerTwo.swift in Sources */,
 				E7A30F04011761FF00000000 /* UserPoolNewPasswordViewController.swift in Sources */,

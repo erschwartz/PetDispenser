@@ -77,6 +77,21 @@ class FeedingTable: NSObject, Table {
         }
     }
     
+    func queryWithCompletionHandler(_ completionHandler: @escaping (_ response: AWSDynamoDBPaginatedOutput?, _ error: NSError?) -> Void) {
+        let objectMapper = AWSDynamoDBObjectMapper.default()
+        let queryExpression = AWSDynamoDBQueryExpression()
+        
+        queryExpression.keyConditionExpression = "#userId = :userId"
+        queryExpression.expressionAttributeNames = ["#userId": "userId",]
+        queryExpression.expressionAttributeValues = [":userId": AWSIdentityManager.default().identityId!,]
+        
+        objectMapper.query(Feeding.self, expression: queryExpression) { (response: AWSDynamoDBPaginatedOutput?, error: Error?) in
+            DispatchQueue.main.async(execute: {
+                completionHandler(response, error as NSError?)
+            })
+        }
+    }
+    
     func scanDescription() -> String {
         return "Show all items in the table."
     }
@@ -84,7 +99,7 @@ class FeedingTable: NSObject, Table {
     func scanWithCompletionHandler(_ completionHandler: @escaping (_ response: AWSDynamoDBPaginatedOutput?, _ error: NSError?) -> Void) {
         let objectMapper = AWSDynamoDBObjectMapper.default()
         let scanExpression = AWSDynamoDBScanExpression()
-        scanExpression.limit = 5
+        scanExpression.limit = 100
 
         objectMapper.scan(Feeding.self, expression: scanExpression) { (response: AWSDynamoDBPaginatedOutput?, error: Error?) in
             DispatchQueue.main.async(execute: {
