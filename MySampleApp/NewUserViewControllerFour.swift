@@ -19,9 +19,9 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
     var foodTable: FoodTable?
     var petTable: PetTable?
     
-    @IBOutlet weak var petEatingFrequency: UITextField!
     @IBOutlet weak var petFoodWeight: UITextField!
     @IBOutlet weak var petFoodTableView: UITableView!
+    @IBOutlet weak var petEatingTimes: UILabel!
     
     // MARK: View lifecycle
     
@@ -47,6 +47,15 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
         self.dismiss(animated: true, completion: nil)
     }
     
+    func presentFeedingTimeViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "FeedingTime") as? FeedingTimeViewController
+        if let foodTimes = user?._currentFoodTimes {
+            viewController?.feedingTimes = foodTimes as [Int]
+        }
+        self.present(viewController!, animated: true, completion: nil)
+    }
+    
     // MARK: IB Actions
     
     @IBAction func didSelectContinue(_ sender: Any) {
@@ -61,12 +70,17 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
         presentAddFoodViewController()
     }
     
+    @IBAction func didSelectPetFeedingTimes(_ sender: Any) {
+        presentFeedingTimeViewController()
+    }
+    
     // MARK: Continuation Functions
     
     func newUserContinue() {
-        guard let petEatingFrequency = petEatingFrequency.text, !petEatingFrequency.isEmpty,
-            let petFoodWeight = petFoodWeight.text, !petFoodWeight.isEmpty,
-            let selectedRow = petFoodTableView.indexPathForSelectedRow else {
+        guard let petFoodWeight = petFoodWeight.text, !petFoodWeight.isEmpty,
+            let selectedRow = petFoodTableView.indexPathForSelectedRow,
+            let currentFoodTimes = user?._currentFoodTimes,
+            currentFoodTimes.count > 0 else {
                 UIAlertView(title: "Missing Required Fields",
                             message: "All pet information is required to continue.",
                             delegate: nil,
@@ -77,9 +91,7 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
         let foodId = foods[selectedRow.row]._id
         user?._currentFoodId = foodId
         user?._currentFoodAmounts = [foodId! : petFoodWeight]
-        
-        print("Eating frequency: \(petEatingFrequency)")
-        
+
         saveItemsToDb()
     }
     

@@ -14,7 +14,6 @@
 
 import AWSCore
 
-
 // Cognito User Pools Identity Id
 let AWSCognitoUserPoolId: String = "us-east-1_928fq8r4q"
 

@@ -24,6 +24,7 @@ class User: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     var _firstName: String?
     var _lastName: String?
     var _machineId: String?
+    var _currentFoodTimes: [NSNumber]?
     var _petIds: [String]?
     
     class func dynamoDBTableName() -> String {
@@ -46,6 +47,7 @@ class User: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
                "_lastName" : "lastName",
                "_machineId" : "machineId",
                "_petIds" : "petIds",
+               "_currentFoodTimes" : "currentFoodTimes",
         ]
     }
 }

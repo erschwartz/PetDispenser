@@ -17,7 +17,6 @@ class SettingsViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var petNameTextField: UITextField!
-    @IBOutlet weak var feedingFrequencyTextField: UITextField!
     @IBOutlet weak var foodAmountTextField: UITextField!
     @IBOutlet weak var petFoodLabel: UILabel!
     
@@ -39,12 +38,17 @@ class SettingsViewController: UIViewController {
         foodTable = tables.filter { $0.tableDisplayName == "Food" }[0] as? FoodTable
         
         getUserFromDb()
-    
-        feedingFrequencyTextField.text = "\(4)"
     }
     
     func setFoodLabel() {
         petFoodLabel.text = food?._name
+    }
+    
+    func presentFeedingTimeViewController() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: "FeedingTime") as? FeedingTimeViewController
+        viewController?.feedingTimes = user?._currentFoodTimes as! [Int]
+        self.present(viewController!, animated: true, completion: nil)
     }
     
     // MARK: DB Functions
@@ -56,7 +60,7 @@ class SettingsViewController: UIViewController {
                 return
             }
             
-            let dict = result?.items[0].dictionaryWithValues(forKeys: ["userId", "firstName", "lastName", "currentFoodId", "petIds", "currentFoodAmounts", "machineId"])
+            let dict = result?.items[0].dictionaryWithValues(forKeys: ["userId", "firstName", "lastName", "currentFoodId", "petIds", "currentFoodAmounts", "machineId", "currentFoodTimes"])
             
             self.user = User()
             self.user?._userId = dict?["userId"] as? String
@@ -67,6 +71,7 @@ class SettingsViewController: UIViewController {
             self.user?._currentFoodAmounts = dict?["currentFoodAmounts"] as? Dictionary
             self.user?._email = "No Email Supplied"
             self.user?._machineId = dict?["machineId"] as? String
+            self.user?._currentFoodTimes = dict?["currentFoodTimes"] as? Array
             
             self.getPetFromDb()
             self.getFoodFromDb()
@@ -191,6 +196,7 @@ class SettingsViewController: UIViewController {
     // MARK: IB Actions
     
     @IBAction func didSelectCloseAccount(_ sender: Any) {
+        print("TO-DO: Close account")
     }
     
     @IBAction func didSelectContinueBackground(_ sender: Any) {
@@ -199,6 +205,10 @@ class SettingsViewController: UIViewController {
     
     @IBAction func didSelectContinue(_ sender: Any) {
         saveInformation()
+    }
+    
+    @IBAction func didSelectPetFeedingTimes(_ sender: Any) {
+        presentFeedingTimeViewController()
     }
     
     @IBAction func didSelectChangePetFood(_ sender: Any) {

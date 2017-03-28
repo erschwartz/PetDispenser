@@ -28,8 +28,6 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        presentSignInViewController()
-        
         var demoFeature = DemoFeature.init(
             name: NSLocalizedString("User Sign-in",
                                     comment: "Label for demo menu option."),
@@ -50,6 +48,10 @@ class MainViewController: UIViewController {
         
         newUserObserver = NotificationCenter.default.addObserver(self, selector: #selector(MainViewController.presentNewUserViewController), name: NSNotification.Name(rawValue: "newUser"), object: nil) as AnyObject!
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        presentSignInViewController()
     }
     
     deinit {
