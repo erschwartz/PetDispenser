@@ -119,11 +119,11 @@ class BluetoothViewController : UIViewController, CBCentralManagerDelegate, CBPe
         activityIndicator.isHidden = false
         activityIndicator.startAnimating()
         
-        sleep(3)
-        
-        performSegue(withIdentifier: "bluetoothContinue", sender: self)
-        
-        activityIndicator.stopAnimating()
+        let when = DispatchTime.now() + 3
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.performSegue(withIdentifier: "bluetoothContinue", sender: self)
+            self.activityIndicator.stopAnimating()
+        }
     }
     
 
