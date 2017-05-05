@@ -24,6 +24,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     @IBOutlet weak var weekButton: UIButton!
     @IBOutlet weak var feedingsLineChart: LineChartView!
     @IBOutlet weak var feedingsTableView: UITableView!
+    @IBOutlet weak var nutritionContainerView: UIView!
     
     var signInObserver: AnyObject!
     var signOutObserver: AnyObject!
@@ -54,6 +55,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         weekButton.layer.cornerRadius = 25
         
         setChartDefaults()
+        nutritionContainerView.isHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -239,6 +241,13 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
         getAllFeedings()
     }
     
+    @IBAction func didSelectAmount(_ sender: Any) {
+        nutritionContainerView.isHidden = true
+    }
+    
+    @IBAction func didSelectNutrition(_ sender: Any) {
+        nutritionContainerView.isHidden = false
+    }
     // MARK: Table view
     
     func numberOfSections(in tableView: UITableView) -> Int {
