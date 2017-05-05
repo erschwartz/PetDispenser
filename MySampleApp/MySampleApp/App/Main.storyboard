@@ -698,26 +698,58 @@
                                     <outlet property="delegate" destination="lcg-3d-OlF" id="urV-b9-AG7"/>
                                 </connections>
                             </textField>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eNb-QL-9v8">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="69" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="eNb-QL-9v8">
                                 <rect key="frame" x="20" y="334" width="374" height="276"/>
                                 <color key="backgroundColor" red="0.9410743117" green="0.94123536350000003" blue="0.94106405969999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="Hst-kq-3aI">
-                                        <rect key="frame" x="0.0" y="28" width="374" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="foodTwo" rowHeight="69" id="Hst-kq-3aI" customClass="FoodTableViewCellTwo" customModule="MySampleApp" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="374" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Hst-kq-3aI" id="Ac3-kF-HS6">
-                                            <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="374" height="68"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pet Food Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5g-qG-jYr">
-                                                    <rect key="frame" x="21" y="11" width="331" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pet Food Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5g-qG-jYr">
+                                                    <rect key="frame" x="56" y="11" width="302" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="ZUs-k3-FB4"/>
+                                                    </constraints>
+                                                    <fontDescription key="fontDescription" name="OpenSans-Bold" family="Open Sans" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Bone" translatesAutoresizingMaskIntoConstraints="NO" id="C2I-ki-9qS">
+                                                    <rect key="frame" x="13" y="20" width="30" height="28"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="30" id="7eu-1I-k2k"/>
+                                                        <constraint firstAttribute="height" constant="28" id="gKQ-Vr-jdH"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Number of Calories" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLc-w0-pto">
+                                                    <rect key="frame" x="56" y="34" width="302" height="21"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="21" id="Wik-ic-Tdv"/>
+                                                    </constraints>
                                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="d5g-qG-jYr" firstAttribute="leading" secondItem="C2I-ki-9qS" secondAttribute="trailing" constant="13" id="5yL-JA-7Gf"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="d5g-qG-jYr" secondAttribute="trailing" constant="8" id="7g4-e5-91P"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="nLc-w0-pto" secondAttribute="trailing" constant="8" id="7yb-93-XNR"/>
+                                                <constraint firstItem="nLc-w0-pto" firstAttribute="top" secondItem="d5g-qG-jYr" secondAttribute="bottom" constant="2" id="8Nw-Cg-JVZ"/>
+                                                <constraint firstItem="nLc-w0-pto" firstAttribute="leading" secondItem="C2I-ki-9qS" secondAttribute="trailing" constant="13" id="JU2-bB-SFW"/>
+                                                <constraint firstItem="d5g-qG-jYr" firstAttribute="top" secondItem="Ac3-kF-HS6" secondAttribute="topMargin" constant="3" id="cma-cO-sgF"/>
+                                                <constraint firstItem="C2I-ki-9qS" firstAttribute="leading" secondItem="Ac3-kF-HS6" secondAttribute="leadingMargin" constant="5" id="hbo-gh-bZN"/>
+                                                <constraint firstItem="C2I-ki-9qS" firstAttribute="top" secondItem="Ac3-kF-HS6" secondAttribute="topMargin" constant="12" id="s5q-XL-4N0"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="caloriesLabel" destination="nLc-w0-pto" id="KzC-Kk-V3z"/>
+                                            <outlet property="foodNameLabel" destination="d5g-qG-jYr" id="aZN-Wd-Xvi"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -829,7 +861,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mbt-nJ-ceI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3413" y="-197"/>
+            <point key="canvasLocation" x="3411.594202898551" y="-197.28260869565219"/>
         </scene>
         <!--bluetoothController-->
         <scene sceneID="c7z-eD-nfQ">

@@ -10,6 +10,7 @@ import Foundation
 import UIKit
 import AWSMobileHubHelper
 import AWSDynamoDB
+import QuartzCore
 
 class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var user: User?
@@ -35,6 +36,9 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
         
         self.petFoodTableView.dataSource = self
         self.petFoodTableView.delegate = self
+        
+        petFoodTableView.layer.cornerRadius = 25
+        petFoodTableView.clipsToBounds = true
         
         fillTableView()
     }
@@ -152,10 +156,13 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let food = foods[indexPath.row]
-        let cell = UITableViewCell()
-        cell.textLabel?.text = food._name
-        cell.detailTextLabel?.text = "\(food._calories) Calories"
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "foodTwo", for: indexPath) as? FoodTableViewCellTwo {
+            cell.foodNameLabel.text = food._name
+            cell.caloriesLabel.text = "\(food._calories!) Calories"
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {

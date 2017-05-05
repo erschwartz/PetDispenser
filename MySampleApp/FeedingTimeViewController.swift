@@ -70,9 +70,12 @@ class FeedingTimeViewController : UIViewController, UITableViewDelegate, UITable
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let feedingTime = feedingTimes[indexPath.row]
         let feedingTimeString = feedingTime.formatAsTimeString()
-        let cell = UITableViewCell()
-        cell.textLabel?.text = feedingTimeString
-        return cell
+        if let cell = tableView.dequeueReusableCell(withIdentifier: "feedingTime", for: indexPath) as? FeedingTimeTableViewCell {
+            cell.timeLabel.text = feedingTimeString
+            return cell
+        }
+        
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
