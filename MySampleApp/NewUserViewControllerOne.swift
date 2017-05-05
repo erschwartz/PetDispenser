@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AWSMobileHubHelper
 
-class NewUserViewControllerOne : UIViewController {
+class NewUserViewControllerOne : UIViewController, UITextViewDelegate {
     @IBOutlet weak var firstName: UITextField!
     @IBOutlet weak var lastName: UITextField!
     
@@ -61,6 +61,11 @@ class NewUserViewControllerOne : UIViewController {
         if let destinationViewController = segue.destination as? NewUserViewControllerTwo {
             destinationViewController.user = user
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

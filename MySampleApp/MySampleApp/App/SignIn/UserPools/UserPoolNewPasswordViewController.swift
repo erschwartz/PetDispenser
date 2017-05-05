@@ -16,7 +16,7 @@ import Foundation
 import AWSCognitoIdentityProvider
 import AWSMobileHubHelper
 
-class UserPoolNewPasswordViewController: UIViewController {
+class UserPoolNewPasswordViewController: UIViewController, UITextViewDelegate {
     
     var user: AWSCognitoIdentityUser?
     var email: String?
@@ -70,6 +70,11 @@ class UserPoolNewPasswordViewController: UIViewController {
     
     @IBAction func onCancel(_ sender: AnyObject) {
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

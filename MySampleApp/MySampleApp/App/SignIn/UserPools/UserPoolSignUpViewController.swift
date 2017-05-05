@@ -17,7 +17,7 @@ import UIKit
 import AWSMobileHubHelper
 import AWSCognitoIdentityProvider
 
-class UserPoolSignUpViewController: UIViewController {
+class UserPoolSignUpViewController: UIViewController, UITextViewDelegate {
     
     var pool: AWSCognitoIdentityUserPool?
     var sentTo: String?
@@ -99,5 +99,10 @@ class UserPoolSignUpViewController: UIViewController {
 
     @IBAction func onCancel(_ sender: AnyObject) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import AWSDynamoDB
 
-class FoodListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FoodListViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
 
     var foodTable: FoodTable?
     var foods: [Food] = []
@@ -119,5 +119,10 @@ class FoodListViewController : UIViewController, UITableViewDelegate, UITableVie
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "AddFood")
         self.present(viewController, animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

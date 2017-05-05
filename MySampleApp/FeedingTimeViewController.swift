@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class FeedingTimeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FeedingTimeViewController : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     
     @IBOutlet weak var feedingTimeTableView: UITableView!
     @IBOutlet weak var timePicker: UIDatePicker!
@@ -146,6 +146,11 @@ class FeedingTimeViewController : UIViewController, UITableViewDelegate, UITable
         cancelButton.isHidden = true
         separatorLabel.isHidden = true
         pickerBackground.isHidden = true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }
 

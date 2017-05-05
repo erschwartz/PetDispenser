@@ -16,7 +16,7 @@ import UIKit
 import AWSMobileHubHelper
 import AWSDynamoDB
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextViewDelegate {
     @IBOutlet weak var anchorView: UIView!
     
     @IBOutlet weak var signInButton: UIButton!
@@ -126,5 +126,9 @@ class SignInViewController: UIViewController {
         self.dismiss(animated: true, completion: nil)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
     
 }

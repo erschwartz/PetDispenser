@@ -11,7 +11,7 @@ import UIKit
 import AWSDynamoDB
 import AWSMobileHubHelper
 
-class AddFoodViewController: UIViewController {
+class AddFoodViewController: UIViewController, UITextViewDelegate {
     
     let floatFormat = ".1"
     var foodTable: FoodTable?
@@ -129,6 +129,11 @@ class AddFoodViewController: UIViewController {
         })
         
         self.dismissController()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
     
 }

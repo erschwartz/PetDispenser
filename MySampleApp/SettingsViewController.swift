@@ -11,7 +11,7 @@ import UIKit
 import AWSMobileHubHelper
 import AWSDynamoDB
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextViewDelegate {
     
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
@@ -217,5 +217,10 @@ class SettingsViewController: UIViewController {
     
     @IBAction func didSelectBackButton(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

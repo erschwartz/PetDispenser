@@ -17,7 +17,7 @@ import UIKit
 import AWSCognitoIdentityProvider
 import AWSMobileHubHelper
 
-class UserPoolForgotPasswordViewController: UIViewController {
+class UserPoolForgotPasswordViewController: UIViewController, UITextViewDelegate {
     
     var pool: AWSCognitoIdentityUserPool?
     var user: AWSCognitoIdentityUser?
@@ -77,5 +77,14 @@ class UserPoolForgotPasswordViewController: UIViewController {
             newPasswordViewController.user = self.user
             newPasswordViewController.email = self.email
         }
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func didSelectBackButton(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }

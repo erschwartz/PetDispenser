@@ -151,28 +151,33 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                     feeding?._foodId = item["foodId"] as? String
                     self.feedings.append(feeding!)
                     
-                    //                if self.foodDictionary[(feeding?._foodId)!] == nil {
-                    //                    self.foodTable?.checkIfFoodInTable(foodId: (feeding?._foodId)!, {(result: AWSDynamoDBPaginatedOutput?, error: NSError?) -> Void in
-                    //
-                    //                        if error != nil {
-                    //                            print("ERROR \(error?.localizedDescription)")
-                    //                            return
-                    //                        }
-                    //
-                    //                        let item = result?.items[0].dictionaryWithValues(forKeys: ["id", "name", "calories", "fat", "protein", "servingSize", "sodium"])
-                    //
-                    //                        let food = Food()
-                    //                        food?._id = item?["id"] as? String
-                    //                        food?._calories = item?["calories"] as? NSNumber
-                    //                        food?._fat = item?["fat"] as? NSNumber
-                    //                        food?._name = item?["name"] as? String
-                    //                        food?._protein = item?["protein"] as? NSNumber
-                    //                        food?._servingSize = item?["servingSize"] as? NSNumber
-                    //                        food?._sodium = item?["sodium"] as? NSNumber
-                    //
-                    //                        self.foodDictionary[(feeding?._foodId)!] = food
-                    //                    })
-                    //                }
+//                    if self.foodDictionary[(feeding?._foodId)!] == nil {
+//                        self.foodTable?.checkIfFoodInTable(foodId: (feeding?._foodId)!, {(result: AWSDynamoDBPaginatedOutput?, error: NSError?) -> Void in
+//                            
+//                            if error != nil {
+//                                print("ERROR \(error?.localizedDescription)")
+//                                return
+//                            }
+//                            
+//                            if result?.items == nil || (result?.items.count)! <= 0 {
+//                                print("Food not found in table")
+//                                return
+//                            }
+//                            
+//                            let foodItem = result?.items[0].dictionaryWithValues(forKeys: ["id", "name", "calories", "fat", "protein", "servingSize", "sodium"])
+//                            
+//                            let food = Food()
+//                            food?._id = foodItem?["id"] as? String
+//                            food?._calories = foodItem?["calories"] as? NSNumber
+//                            food?._fat = foodItem?["fat"] as? NSNumber
+//                            food?._name = foodItem?["name"] as? String
+//                            food?._protein = foodItem?["protein"] as? NSNumber
+//                            food?._servingSize = foodItem?["servingSize"] as? NSNumber
+//                            food?._sodium = foodItem?["sodium"] as? NSNumber
+//                            
+//                            self.foodDictionary[(feeding?._foodId)!] = food
+//                        })
+//                    }
                 }
                 
                 if !self.feedings.isEmpty {

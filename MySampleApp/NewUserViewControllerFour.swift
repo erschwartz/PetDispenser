@@ -11,7 +11,7 @@ import UIKit
 import AWSMobileHubHelper
 import AWSDynamoDB
 
-class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextViewDelegate {
     var user: User?
     var pet: Pet?
     var foods: [Food] = []
@@ -192,6 +192,15 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
             
             self.petFoodTableView.reloadData()
         })
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func didSelectBackButton(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
     }
 }
 

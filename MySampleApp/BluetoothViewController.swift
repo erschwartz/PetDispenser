@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import CoreBluetooth
 
-class BluetoothViewController : UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate {
+class BluetoothViewController : UIViewController, CBCentralManagerDelegate, CBPeripheralDelegate, UITextFieldDelegate {
     @IBOutlet weak var activityLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var activityScreen: UILabel!
@@ -139,4 +139,14 @@ class BluetoothViewController : UIViewController, CBCentralManagerDelegate, CBPe
         activityScreen.isHidden = true
         activityIndicator.isHidden = true
     }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @IBAction func didSelectBackButton(_ sender: Any) {
+        self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+    
 }
