@@ -117,10 +117,10 @@ class FeedingTimeViewController : UIViewController, UITableViewDelegate, UITable
         let components = calendar.dateComponents([.hour, .minute], from: timePicker.date)
         
         var hour = components.hour!
-        if hour + 5 > 23 {
-            hour = (hour + 5) - 24
+        if hour + 4 > 23 {
+            hour = (hour + 4) - 24
         } else {
-            hour += 5
+            hour += 4
         }
         
         let feedingTime = hour * 60 + components.minute!
@@ -153,12 +153,27 @@ extension Int {
     func formatAsTimeString() -> String {
         let minutes = self % 60
         var hours = (self / 60) % 24
-        if hours - 5 < 0 {
-            hours = 24 + (hours - 5)
+        if hours - 4 < 0 {
+            hours = 24 + (hours - 4)
         } else {
-            hours -= 5
+            hours -= 4
         }
         
-        return "\(hours):\(minutes)"
+        var minutesString = String(minutes)
+        if (minutes < 10) {
+            minutesString = "0" + minutesString
+        }
+        
+        
+        var amPm = hours > 12 ? "pm" : "am";
+        if (hours > 12) {
+            hours -= 12;
+            if (hours == 0) {
+                hours = 12;
+                amPm = "am";
+            }
+        }
+        
+        return "\(hours):\(minutesString) \(amPm)"
     }
 }

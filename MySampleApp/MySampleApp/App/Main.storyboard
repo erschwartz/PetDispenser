@@ -310,10 +310,10 @@
             </objects>
             <point key="canvasLocation" x="1779.7101449275365" y="-198.09782608695653"/>
         </scene>
-        <!--New User View Controller Three-->
+        <!--newUserThreeContinue-->
         <scene sceneID="fK2-i9-dcF">
             <objects>
-                <viewController id="OGr-U0-ZTy" customClass="NewUserViewControllerThree" customModule="MySampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="newUserThreeContinue" id="OGr-U0-ZTy" customClass="NewUserViewControllerThree" customModule="MySampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="FSo-Rt-dkC"/>
                         <viewControllerLayoutGuide type="bottom" id="J4e-s6-G46"/>
@@ -532,7 +532,7 @@
                         <outlet property="petName" destination="CXr-IK-Z9q" id="3bD-LX-zaU"/>
                         <outlet property="petType" destination="2fM-yG-Nwx" id="BbF-zC-Xhx"/>
                         <outlet property="petWeight" destination="RiH-9P-wRj" id="LGZ-jS-HTE"/>
-                        <segue destination="lcg-3d-OlF" kind="show" identifier="newUserThreeContinue" id="LZr-ym-lRM"/>
+                        <segue destination="zo5-PL-e20" kind="show" identifier="newUserThreeContinue" id="lnY-K2-tl8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Vo-Di-AtO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -744,7 +744,120 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mbt-nJ-ceI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3186.9565217391305" y="-197.28260869565219"/>
+            <point key="canvasLocation" x="3413" y="-197"/>
+        </scene>
+        <!--bluetoothController-->
+        <scene sceneID="c7z-eD-nfQ">
+            <objects>
+                <viewController title="bluetoothController" id="zo5-PL-e20" customClass="BluetoothViewController" customModule="MySampleApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="djg-0F-M9Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="FXo-Fh-kcl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="NZn-EY-R80">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3d-sO-fbn">
+                                <rect key="frame" x="20" y="77" width="374" height="159"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <string key="text">We need to get your device some access to wifi now so that it can always feed your pet on time. Please enter your wifi network name and password. You only need to complete this step once, but you have the option to change it later.</string>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's get connected." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6FD-A8-puJ">
+                                <rect key="frame" x="87" y="28" width="242" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="27"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edb-dj-VaR">
+                                <rect key="frame" x="20" y="275" width="374" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="NETWORK NAME" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KPx-yn-00A">
+                                <rect key="frame" x="20" y="246" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BEY-JA-TJw">
+                                <rect key="frame" x="20" y="321" width="374" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="NETWORK PASSWORD" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="TT6-4g-Zlt">
+                                <rect key="frame" x="20" y="293" width="374" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="15"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yw7-89-SPk">
+                                <rect key="frame" x="0.0" y="669" width="414" height="67"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.63401794430000002" green="0.53112763169999999" blue="0.38309949640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.63401794430000002" green="0.53112763169999999" blue="0.38309949640000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didSelectContinueBackground:" destination="zo5-PL-e20" eventType="touchUpInside" id="YVM-nl-K2G"/>
+                                    <action selector="didSelectContinueBackground:" destination="OGr-U0-ZTy" eventType="touchUpInside" id="uFA-HI-ZxG"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5YS-FI-eYB">
+                                <rect key="frame" x="186" y="681" width="41" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="Go-Button"/>
+                                <connections>
+                                    <action selector="didSelectContinue:" destination="OGr-U0-ZTy" eventType="touchUpInside" id="DY7-jF-OL0"/>
+                                    <action selector="didSelectContinue:" destination="zo5-PL-e20" eventType="touchUpInside" id="Zsw-Of-sAr"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ngT-cZ-Atw">
+                                <rect key="frame" x="0.0" y="-1" width="414" height="737"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.13661755181347146" green="0.13661755181347146" blue="0.13661755181347146" alpha="0.58643265845070425" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="yz8-XL-MEI">
+                                <rect key="frame" x="190" y="323" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Please wait, we are sending these details to your device!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="35f-SC-S1h">
+                                <rect key="frame" x="20" y="383" width="374" height="63"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="yz8-XL-MEI" id="rpF-UT-xhv"/>
+                        <outlet property="activityLabel" destination="35f-SC-S1h" id="poS-bH-b5c"/>
+                        <outlet property="activityScreen" destination="ngT-cZ-Atw" id="NWD-1X-gsb"/>
+                        <outlet property="networkNameLabel" destination="KPx-yn-00A" id="PHa-aB-3SV"/>
+                        <outlet property="networkPasswordLabel" destination="TT6-4g-Zlt" id="LMx-VU-vRy"/>
+                        <segue destination="lcg-3d-OlF" kind="show" identifier="bluetoothContinue" id="B4m-JN-hUA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4JN-1Z-Pxp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2975" y="-880"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="PMu-d2-PUr">

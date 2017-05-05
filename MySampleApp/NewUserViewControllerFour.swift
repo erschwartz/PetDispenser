@@ -129,7 +129,7 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
                         message: "Your account information has been updated.",
                         delegate: nil,
                         cancelButtonTitle: "Ok").show()
-            self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+            self.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
         } else {
             UIAlertView(title: "Error",
                         message: "We were unable to create your account.",

@@ -69,7 +69,7 @@ class NewUserViewControllerThree : UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationViewController = segue.destination as? NewUserViewControllerFour {
+        if let destinationViewController = segue.destination as? BluetoothViewController {
             destinationViewController.user = user
             destinationViewController.pet = pet
         }

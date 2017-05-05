@@ -24,8 +24,11 @@
 		844692741E887FD1008711E1 /* NewUserViewControllerThree.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */; };
 		844692761E888CF7008711E1 /* NewUserViewControllerFour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692751E888CF7008711E1 /* NewUserViewControllerFour.swift */; };
 		8446927E1E894D65008711E1 /* AddFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446927D1E894D65008711E1 /* AddFoodViewController.swift */; };
+		845A55FC1EB50B1800C8667D /* BluetoothViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845A55FB1EB50B1800C8667D /* BluetoothViewController.swift */; };
 		84832BCD1E8992BA00D99B90 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832BCC1E8992BA00D99B90 /* SettingsViewController.swift */; };
 		84832BCF1E89A86500D99B90 /* FoodListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84832BCE1E89A86500D99B90 /* FoodListViewController.swift */; };
+		8491E0111EA82918004221D8 /* Charts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 844692691E885DE4008711E1 /* Charts.framework */; };
+		8491E0121EA82918004221D8 /* Charts.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 844692691E885DE4008711E1 /* Charts.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84A80DBC1E8AB4D9009DC9AA /* FeedingTimeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A80DBB1E8AB4D9009DC9AA /* FeedingTimeViewController.swift */; };
 		84A80DC11E8AE776009DC9AA /* FoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A80DC01E8AE776009DC9AA /* FoodTableViewCell.swift */; };
 		E7A30F04011761FF00000000 /* UserPoolNewPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD70E2983A2DAC900000000 /* UserPoolNewPasswordViewController.swift */; };
@@ -103,6 +106,13 @@
 			remoteGlobalIDString = 06165F2E1D8110E600722320;
 			remoteInfo = ChartsTests;
 		};
+		8491E0131EA82918004221D8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844692621E885DE3008711E1 /* Charts.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 06165F231D8110E600722320;
+			remoteInfo = Charts;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -113,6 +123,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				E7A30F045105B41800000000 /* AWSCognitoIdentityProvider.framework in Embed Frameworks */,
+				8491E0121EA82918004221D8 /* Charts.framework in Embed Frameworks */,
 				E7A30F04C1F1DC9000000000 /* AWSDynamoDB.framework in Embed Frameworks */,
 				E7A30F04D2943AE700000000 /* AWSCore.framework in Embed Frameworks */,
 			);
@@ -190,6 +201,7 @@
 		844692731E887FD1008711E1 /* NewUserViewControllerThree.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerThree.swift; sourceTree = SOURCE_ROOT; };
 		844692751E888CF7008711E1 /* NewUserViewControllerFour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewUserViewControllerFour.swift; sourceTree = SOURCE_ROOT; };
 		8446927D1E894D65008711E1 /* AddFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodViewController.swift; sourceTree = SOURCE_ROOT; };
+		845A55FB1EB50B1800C8667D /* BluetoothViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BluetoothViewController.swift; sourceTree = SOURCE_ROOT; };
 		84832BCC1E8992BA00D99B90 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = SOURCE_ROOT; };
 		84832BCE1E89A86500D99B90 /* FoodListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodListViewController.swift; sourceTree = SOURCE_ROOT; };
 		84A80DBB1E8AB4D9009DC9AA /* FeedingTimeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingTimeViewController.swift; sourceTree = SOURCE_ROOT; };
@@ -213,6 +225,7 @@
 				E7A30F041BAAD07400000000 /* libz.tbd in Frameworks */,
 				E7A30F040B257A9C00000000 /* libsqlite3.tbd in Frameworks */,
 				E7A30F04DAE3335B00000000 /* Foundation.framework in Frameworks */,
+				8491E0111EA82918004221D8 /* Charts.framework in Frameworks */,
 				E7A30F04DB5794EA00000000 /* MediaPlayer.framework in Frameworks */,
 				E7A30F0412D95B7000000000 /* SafariServices.framework in Frameworks */,
 			);
@@ -276,6 +289,7 @@
 				1DD70E2926521A9100000000 /* Images.xcassets */,
 				1DD70E29A9F2A40100000000 /* Launch Screen.storyboard */,
 				1DD70E29011D052D00000000 /* Main.storyboard */,
+				845A55FB1EB50B1800C8667D /* BluetoothViewController.swift */,
 				84A80DC01E8AE776009DC9AA /* FoodTableViewCell.swift */,
 				84A80DBB1E8AB4D9009DC9AA /* FeedingTimeViewController.swift */,
 				84832BCE1E89A86500D99B90 /* FoodListViewController.swift */,
@@ -326,6 +340,8 @@
 			isa = PBXGroup;
 			children = (
 				844692621E885DE3008711E1 /* Charts.xcodeproj */,
+				B401C9796EA8621500000000 /* Frameworks */,
+				B401C9797F0C54C600000000 /* MySampleApp */,
 				8446924C1E884117008711E1 /* OpenSans-Bold.ttf */,
 				8446924D1E884117008711E1 /* OpenSans-BoldItalic.ttf */,
 				8446924E1E884117008711E1 /* OpenSans-ExtraBold.ttf */,
@@ -337,8 +353,6 @@
 				844692541E884117008711E1 /* OpenSans-Semibold.ttf */,
 				844692551E884117008711E1 /* OpenSans-SemiboldItalic.ttf */,
 				B401C9796EC134A800000000 /* Products */,
-				B401C9797F0C54C600000000 /* MySampleApp */,
-				B401C9796EA8621500000000 /* Frameworks */,
 			);
 			name = mainGroup;
 			sourceTree = "<group>";
@@ -451,6 +465,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				8491E0141EA82918004221D8 /* PBXTargetDependency */,
 			);
 			name = MySampleApp;
 			productName = MySampleApp;
@@ -467,7 +482,9 @@
 				LastUpgradeCheck = 0820;
 				TargetAttributes = {
 					E66DC04E0000000000000000 = {
+						DevelopmentTeam = XR9M22KFRS;
 						LastSwiftMigration = 0810;
+						ProvisioningStyle = Automatic;
 					};
 				};
 			};
@@ -589,6 +606,7 @@
 				E7A30F044F0CC4E300000000 /* SignInViewController.swift in Sources */,
 				84832BCF1E89A86500D99B90 /* FoodListViewController.swift in Sources */,
 				E7A30F04EAF543AD00000000 /* PetTable.swift in Sources */,
+				845A55FC1EB50B1800C8667D /* BluetoothViewController.swift in Sources */,
 				E7A30F0482BFD68A00000000 /* Pet.swift in Sources */,
 				E7A30F04EF2A7A7C00000000 /* Food.swift in Sources */,
 				E7A30F04EBB3733200000000 /* UserPoolSignUpConfirmationViewController.swift in Sources */,
@@ -622,6 +640,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8491E0141EA82918004221D8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Charts;
+			targetProxy = 8491E0131EA82918004221D8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		49524373386D956C00000000 /* Release */ = {
@@ -669,9 +695,12 @@
 		49524373386D956C00000001 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MySampleApp/MySampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "iphone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = XR9M22KFRS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -683,7 +712,7 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MySampleApp/App/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.amazon.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elschwartz.HPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -742,9 +771,12 @@
 		4952437346F3E10800000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = MySampleApp/MySampleApp.entitlements;
 				CODE_SIGN_IDENTITY = "iphone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = XR9M22KFRS;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -756,8 +788,10 @@
 				INFOPLIST_FILE = "$(SRCROOT)/MySampleApp/App/SupportingFiles/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.amazon.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.elschwartz.HPet;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
