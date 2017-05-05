@@ -40,8 +40,8 @@ class NewUserViewControllerOne : UIViewController, UITextViewDelegate {
     
     func newUserContinue() {
         
-        guard let firstName = firstName.text, !firstName.isEmpty,
-            let lastName = lastName.text, !lastName.isEmpty else {
+        guard let userFirstName = firstName.text, !userFirstName.isEmpty,
+            let userLastName = lastName.text, !userLastName.isEmpty else {
                 UIAlertView(title: "Missing Required Fields",
                             message: "First Name / Last Name are required to continue.",
                             delegate: nil,
@@ -49,10 +49,18 @@ class NewUserViewControllerOne : UIViewController, UITextViewDelegate {
                 return
         }
         
+        if (firstName.text?.characters.count)! < 2 || (lastName.text?.characters.count)! < 2 {
+            UIAlertView(title: "Required Fields Incorrect",
+                        message: "First Name / Last Name length too short. Please recheck you have entered your name correctly.",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            return
+        }
+        
         user = User()
         user?._userId = AWSIdentityManager.default().identityId!
-        user?._firstName = firstName
-        user?._lastName = lastName
+        user?._firstName = userFirstName
+        user?._lastName = userLastName
 
         performSegue(withIdentifier: "newUserOneContinue", sender: self)
     }

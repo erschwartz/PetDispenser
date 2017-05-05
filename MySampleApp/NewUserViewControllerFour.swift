@@ -98,6 +98,14 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
                 return
         }
         
+        if !petFoodWeight.isNumber {
+            UIAlertView(title: "Required Fields Incorrect",
+                        message: "Please ensure the food weight you entered is a number.",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            return
+        }
+        
         let foodId = foods[selectedRow.row]._id
         user?._currentFoodId = foodId
         user?._currentFoodAmounts = [foodId! : petFoodWeight]

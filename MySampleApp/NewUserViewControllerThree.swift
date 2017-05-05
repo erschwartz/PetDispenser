@@ -57,6 +57,30 @@ class NewUserViewControllerThree : UIViewController, UITextViewDelegate {
                 return
         }
         
+        if petName.characters.count < 2 || petBreed.characters.count < 2 {
+            UIAlertView(title: "Required Fields Incorrect",
+                        message: "Please ensure your pet name and pet breed are at least 2 characters.",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            return
+        }
+        
+        if petType.lowercased() != "dog" && petType.lowercased() != "cat" {
+            UIAlertView(title: "Pet Type Not Supported",
+                        message: "We currently only support dogs and cats. Sorry!",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            return
+        }
+        
+        if !petWeight.isNumber || !petAge.isNumber {
+            UIAlertView(title: "Invalid Number",
+                        message: "Please ensure you enter a valid number for pet weight and age",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            return
+        }
+        
         pet = Pet()
         pet?._petName = petName
         pet?._userId = AWSIdentityManager.default().identityId!

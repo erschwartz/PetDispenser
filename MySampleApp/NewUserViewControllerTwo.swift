@@ -41,8 +41,8 @@ class NewUserViewControllerTwo : UIViewController, UITextViewDelegate {
     
     func newUserContinue() {
         
-        guard let machineId = machineId.text, !machineId.isEmpty,
-            let petId = petId.text, !petId.isEmpty else {
+        guard let userMachineId = machineId.text, !userMachineId.isEmpty,
+            let userPetId = petId.text, !userPetId.isEmpty else {
                 UIAlertView(title: "Missing Required Fields",
                             message: "Machine ID / Pet Collar ID are required to continue.",
                             delegate: nil,
@@ -50,9 +50,18 @@ class NewUserViewControllerTwo : UIViewController, UITextViewDelegate {
                 return
         }
         
+        if userMachineId.characters.count != 16 || userPetId.characters.count != 16 ||
+            !userMachineId.isNumber || !userPetId.isNumber {
+            UIAlertView(title: "Incorrect ID(s) given",
+                        message: "Machine ID / Pet Collar ID are 16 digit numbers. Please ensure you have the correct ID.",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            return
+        }
+        
         user?._userId = AWSIdentityManager.default().identityId!
-        user?._machineId = machineId
-        user?._petIds = [petId]
+        user?._machineId = userMachineId
+        user?._petIds = [userPetId]
         
         performSegue(withIdentifier: "newUserTwoContinue", sender: self)
     }
@@ -70,5 +79,13 @@ class NewUserViewControllerTwo : UIViewController, UITextViewDelegate {
     
     @IBAction func didSelectBackButton(_ sender: Any) {
         self.presentingViewController?.dismiss(animated: true, completion: nil)
+    }
+}
+
+extension String  {
+    var isNumber : Bool {
+        get{
+            return !self.isEmpty && self.rangeOfCharacter(from: CharacterSet.decimalDigits.inverted) == nil
+        }
     }
 }

@@ -114,6 +114,7 @@ class BluetoothViewController : UIViewController, CBCentralManagerDelegate, CBPe
     }
     
     func doContinue() {
+        
         activityLabel.isHidden = false
         activityScreen.isHidden = false
         activityIndicator.isHidden = false
@@ -121,8 +122,23 @@ class BluetoothViewController : UIViewController, CBCentralManagerDelegate, CBPe
         
         let when = DispatchTime.now() + 3
         DispatchQueue.main.asyncAfter(deadline: when) {
-            self.performSegue(withIdentifier: "bluetoothContinue", sender: self)
             self.activityIndicator.stopAnimating()
+            
+            if (self.networkNameLabel.text?.characters.count)! < 2 || (self.networkPasswordLabel.text?.characters.count)! < 2 {
+                UIAlertView(title: "Invalid Fields Entered",
+                            message: "Please ensure the network name and password you entered are correct.",
+                            delegate: nil,
+                            cancelButtonTitle: "Ok").show()
+                self.activityLabel.isHidden = true
+                self.activityScreen.isHidden = true
+                self.activityIndicator.isHidden = true
+                return
+            }
+            
+            self.performSegue(withIdentifier: "bluetoothContinue", sender: self)
+            self.activityLabel.isHidden = true
+            self.activityScreen.isHidden = true
+            self.activityIndicator.isHidden = true
         }
     }
     
