@@ -34,7 +34,7 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     var feedings: [Feeding] = []
     var filteredFeedings: [Feeding] = []
     var foodDictionary: Dictionary<String, Food> = [:]
-    var timePeriod = TimePeriod.week
+    var timePeriod = TimePeriod.year
     
     fileprivate let loginButton: UIBarButtonItem = UIBarButtonItem(title: nil, style: .done, target: nil, action: nil)
     
@@ -51,6 +51,8 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         yearButton.layer.cornerRadius = 25
         monthButton.layer.cornerRadius = 25
         weekButton.layer.cornerRadius = 25
+        
+        setChartDefaults()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -140,6 +142,23 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                 var items = result!.items.map {$0.dictionaryWithValues(forKeys: ["userId", "petId", "amountEaten", "date", "foodName", "time", "foodId"])}
                 items = items.filter { $0["userId"] as? String == AWSIdentityManager.default().identityId! }
                 
+                let nowSeconds = NSDate().timeIntervalSince1970
+                print("now \(nowSeconds)")
+                let daySeconds = 60 * 60 * 24 * 1.0
+                
+                
+                switch (self.timePeriod) {
+                case .month:
+                    items = items.filter { (($0["date"] as? NSNumber)?.doubleValue)! > (nowSeconds - daySeconds * 30)}
+                    break
+                case .week:
+                    items = items.filter { (($0["date"] as? NSNumber)?.doubleValue)! > (nowSeconds - daySeconds * 7)}
+                    break
+                default:
+                    items = items.filter { (($0["date"] as? NSNumber)?.doubleValue)! > (nowSeconds - daySeconds * 365)}
+                    break
+                }
+
                 for item in items {
                     let feeding = Feeding()
                     feeding?._userId = item["userId"] as? String
@@ -243,23 +262,29 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     func convertFeedingsToEntries() {
         var entries: [ChartDataEntry] = []
-        let currentTime = NSDate().timeIntervalSince1970 * 1000
+        let currentTime = NSDate().timeIntervalSince1970 * 1.0
         
         for feeding in filteredFeedings {
             let timeSinceNow = currentTime - (feeding._date as! Double)
-            let hoursAgo = timeSinceNow / 1000 / 60 / 60
-            let daysAgo = hoursAgo / 24
-            //            let monthsAgo = daysAgo / 30
-            
-            
+            let daysAgo = timeSinceNow / 60 / 60  / 24
             let chartDataEntry = ChartDataEntry(x: daysAgo, y: feeding._amountEaten as! Double)
             entries.append(chartDataEntry)
         }
         
         let lineChartDataSet = LineChartDataSet(values: entries, label: "Pet Feedings")
         let lineData = LineChartData(dataSets: [lineChartDataSet])
+        lineData.setDrawValues(false)
         feedingsLineChart.data = lineData
         feedingsLineChart.reloadInputViews()
+    }
+    
+    func setChartDefaults() {
+        feedingsLineChart.gridBackgroundColor = UIColor.white
+        feedingsLineChart.drawGridBackgroundEnabled = false
+        feedingsLineChart.rightAxis.enabled = false
+        feedingsLineChart.autoScaleMinMaxEnabled = false
+        feedingsLineChart.chartDescription?.enabled = false
+        feedingsLineChart.xAxis.labelPosition = XAxis.LabelPosition.bottom
     }
 }
 
