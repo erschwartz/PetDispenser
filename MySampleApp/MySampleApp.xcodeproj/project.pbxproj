@@ -10,6 +10,7 @@
 		8406BAF21EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406BAF11EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift */; };
 		8406BAF61EBC0F7C003AA0CC /* FoodTableViewCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406BAF51EBC0F7C003AA0CC /* FoodTableViewCellTwo.swift */; };
 		8406BAF81EBC2E8E003AA0CC /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406BAF71EBC2E8E003AA0CC /* FoodDetailViewController.swift */; };
+		8406BAFA1EBC3AC7003AA0CC /* NutritionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406BAF91EBC3AC7003AA0CC /* NutritionViewController.swift */; };
 		844692571E884202008711E1 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692561E884202008711E1 /* InitialViewController.swift */; };
 		844692581E8859BF008711E1 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8446924C1E884117008711E1 /* OpenSans-Bold.ttf */; };
 		844692591E8859BF008711E1 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8446924D1E884117008711E1 /* OpenSans-BoldItalic.ttf */; };
@@ -190,6 +191,7 @@
 		8406BAF11EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingTimeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		8406BAF51EBC0F7C003AA0CC /* FoodTableViewCellTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCellTwo.swift; sourceTree = SOURCE_ROOT; };
 		8406BAF71EBC2E8E003AA0CC /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = SOURCE_ROOT; };
+		8406BAF91EBC3AC7003AA0CC /* NutritionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NutritionViewController.swift; sourceTree = SOURCE_ROOT; };
 		8446924C1E884117008711E1 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		8446924D1E884117008711E1 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		8446924E1E884117008711E1 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -295,6 +297,7 @@
 				1DD70E2926521A9100000000 /* Images.xcassets */,
 				1DD70E29A9F2A40100000000 /* Launch Screen.storyboard */,
 				1DD70E29011D052D00000000 /* Main.storyboard */,
+				8406BAF91EBC3AC7003AA0CC /* NutritionViewController.swift */,
 				8406BAF71EBC2E8E003AA0CC /* FoodDetailViewController.swift */,
 				8406BAF51EBC0F7C003AA0CC /* FoodTableViewCellTwo.swift */,
 				8406BAF11EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift */,
@@ -614,6 +617,7 @@
 				E7A30F04F436E84900000000 /* Feeding.swift in Sources */,
 				E7A30F044F0CC4E300000000 /* SignInViewController.swift in Sources */,
 				84832BCF1E89A86500D99B90 /* FoodListViewController.swift in Sources */,
+				8406BAFA1EBC3AC7003AA0CC /* NutritionViewController.swift in Sources */,
 				E7A30F04EAF543AD00000000 /* PetTable.swift in Sources */,
 				845A55FC1EB50B1800C8667D /* BluetoothViewController.swift in Sources */,
 				E7A30F0482BFD68A00000000 /* Pet.swift in Sources */,

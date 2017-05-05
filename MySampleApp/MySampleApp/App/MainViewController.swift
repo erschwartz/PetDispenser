@@ -32,6 +32,7 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     var feedingTable: FeedingTable?
     var foodTable: FoodTable?
     var selectedFood: Food?
+    var nutritionViewController: NutritionViewController?
     
     var feedings: [Feeding] = []
     var filteredFeedings: [Feeding] = []
@@ -163,8 +164,9 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                     items = items.filter { (($0["date"] as? NSNumber)?.doubleValue)! > (nowSeconds - daySeconds * 365)}
                     break
                 }
-
-                for item in items {
+                
+                for i in 0 ..< items.count {
+                    var item = items[i]
                     let feeding = Feeding()
                     feeding?._userId = item["userId"] as? String
                     feeding?._petId = item["petId"] as? String
@@ -200,15 +202,32 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
                             food?._sodium = foodItem?["sodium"] as? NSNumber
                             
                             self.foodDictionary[(feeding?._foodId)!] = food
+                            
+                            if i == items.count - 1 {
+                                self.completeLoading()
+                            }
                         })
+
+                    } else if i == items.count - 1 {
+                        self.completeLoading()
                     }
                 }
                 
-                if !self.feedings.isEmpty {
-                    self.feedings.sort { $0._date!.doubleValue > $1._date!.doubleValue }
-                    self.loadData()
-                }
+            
             })
+        }
+    }
+    
+    func completeLoading() {
+        if !self.feedings.isEmpty {
+            self.feedings.sort { $0._date!.doubleValue > $1._date!.doubleValue }
+            
+            self.nutritionViewController?.feedings = self.feedings
+            self.nutritionViewController?.foodDictionary = self.foodDictionary
+            self.nutritionViewController?.loadCharts()
+            self.nutritionViewController?.loadLabels()
+            
+            self.loadData()
         }
     }
     
@@ -279,6 +298,10 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationViewController = segue.destination as? FoodDetailViewController {
             destinationViewController.food = selectedFood
+        }
+        
+        if let nutritionContainer = segue.destination as? NutritionViewController {
+            nutritionViewController = nutritionContainer
         }
     }
     
