@@ -27,7 +27,7 @@ class Feeding: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
     
     class func dynamoDBTableName() -> String {
 
-        return "hpet-mobilehub-642847546-Feeding"
+        return "hpet-mobilehub-642847546-Feeding2"
     }
     
     class func hashKeyAttribute() -> String {

@@ -101,7 +101,6 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             AWSIdentityManager.default().logout(completionHandler: {(result: Any?, error: Error?) in
                 self.presentSignInViewController()
             })
-            // print("Logout Successful: \(signInProvider.getDisplayName)");
         } else {
             assert(false)
         }
@@ -131,14 +130,15 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     func getAllFeedings() {
         if AWSIdentityManager.default().isLoggedIn {
-            feedingTable?.queryWithCompletionHandler({(result: AWSDynamoDBPaginatedOutput?, error: NSError?) -> Void in
+            feedingTable?.scanWithCompletionHandler({(result: AWSDynamoDBPaginatedOutput?, error: NSError?) -> Void in
                 
                 if error != nil {
                     print("ERROR: \(error?.localizedDescription)")
                     return
                 }
                 
-                let items = result!.items.map {$0.dictionaryWithValues(forKeys: ["userId", "petId", "amountEaten", "date", "foodName", "time", "foodId"])}
+                var items = result!.items.map {$0.dictionaryWithValues(forKeys: ["userId", "petId", "amountEaten", "date", "foodName", "time", "foodId"])}
+                items = items.filter { $0["userId"] as? String == AWSIdentityManager.default().identityId! }
                 
                 for item in items {
                     let feeding = Feeding()
@@ -151,36 +151,37 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
                     feeding?._foodId = item["foodId"] as? String
                     self.feedings.append(feeding!)
                     
-//                    if self.foodDictionary[(feeding?._foodId)!] == nil {
-//                        self.foodTable?.checkIfFoodInTable(foodId: (feeding?._foodId)!, {(result: AWSDynamoDBPaginatedOutput?, error: NSError?) -> Void in
-//                            
-//                            if error != nil {
-//                                print("ERROR \(error?.localizedDescription)")
-//                                return
-//                            }
-//                            
-//                            if result?.items == nil || (result?.items.count)! <= 0 {
-//                                print("Food not found in table")
-//                                return
-//                            }
-//                            
-//                            let foodItem = result?.items[0].dictionaryWithValues(forKeys: ["id", "name", "calories", "fat", "protein", "servingSize", "sodium"])
-//                            
-//                            let food = Food()
-//                            food?._id = foodItem?["id"] as? String
-//                            food?._calories = foodItem?["calories"] as? NSNumber
-//                            food?._fat = foodItem?["fat"] as? NSNumber
-//                            food?._name = foodItem?["name"] as? String
-//                            food?._protein = foodItem?["protein"] as? NSNumber
-//                            food?._servingSize = foodItem?["servingSize"] as? NSNumber
-//                            food?._sodium = foodItem?["sodium"] as? NSNumber
-//                            
-//                            self.foodDictionary[(feeding?._foodId)!] = food
-//                        })
-//                    }
+                    if self.foodDictionary[(feeding?._foodId)!] == nil {
+                        self.foodTable?.checkIfFoodInTable(foodId: (feeding?._foodId)!, {(result: AWSDynamoDBPaginatedOutput?, error: NSError?) -> Void in
+                            
+                            if error != nil {
+                                print("ERROR \(error?.localizedDescription)")
+                                return
+                            }
+                            
+                            if result?.items == nil || (result?.items.count)! <= 0 {
+                                print("Food not found in table: \(feeding?._foodId)")
+                                return
+                            }
+                            
+                            let foodItem = result?.items[0].dictionaryWithValues(forKeys: ["id", "name", "calories", "fat", "protein", "servingSize", "sodium"])
+                            
+                            let food = Food()
+                            food?._id = foodItem?["id"] as? String
+                            food?._calories = foodItem?["calories"] as? NSNumber
+                            food?._fat = foodItem?["fat"] as? NSNumber
+                            food?._name = foodItem?["name"] as? String
+                            food?._protein = foodItem?["protein"] as? NSNumber
+                            food?._servingSize = foodItem?["servingSize"] as? NSNumber
+                            food?._sodium = foodItem?["sodium"] as? NSNumber
+                            
+                            self.foodDictionary[(feeding?._foodId)!] = food
+                        })
+                    }
                 }
                 
                 if !self.feedings.isEmpty {
+                    self.feedings.sort { $0._date!.doubleValue > $1._date!.doubleValue }
                     self.loadData()
                 }
             })
@@ -203,14 +204,17 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     @IBAction func didSelectWeek(_ sender: Any) {
         timePeriod = TimePeriod.week
+        getAllFeedings()
     }
     
     @IBAction func didSelectMonth(_ sender: Any) {
         timePeriod = TimePeriod.month
+        getAllFeedings()
     }
     
     @IBAction func didSelectYear(_ sender: Any) {
         timePeriod = TimePeriod.year
+        getAllFeedings()
     }
     
     // MARK: Table view
@@ -226,7 +230,7 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: "foodTableViewCell") as? FoodTableViewCell {
             let feeding = filteredFeedings[indexPath.row]
-            cell.calories.text = "\(feeding._amountEaten) g"
+            cell.foodAmount.text = "\(feeding._amountEaten!) g"
             cell.foodName.text = feeding._foodName
             cell.time.text = (feeding._date as! Double).toDay
             return cell

@@ -12,7 +12,7 @@ import UIKit
 class FoodTableViewCell : UITableViewCell {
     
     @IBOutlet weak var foodName: UILabel!
-    @IBOutlet weak var calories: UILabel!
+    @IBOutlet weak var foodAmount: UILabel!
     @IBOutlet weak var time: UILabel!
     
     override func awakeFromNib() {

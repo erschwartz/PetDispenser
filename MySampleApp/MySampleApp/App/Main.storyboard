@@ -1230,7 +1230,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="kCal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWP-lm-NUK">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="grams" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JWP-lm-NUK">
                                                     <rect key="frame" x="305" y="19" width="63" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="ie5-wl-fRj"/>
@@ -1256,7 +1256,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <outlet property="calories" destination="JWP-lm-NUK" id="2N5-oL-z1a"/>
+                                            <outlet property="foodAmount" destination="JWP-lm-NUK" id="9JM-6v-ZBy"/>
                                             <outlet property="foodName" destination="hPg-sh-2Jk" id="Cat-JO-fwc"/>
                                             <outlet property="time" destination="8Nd-E9-UqJ" id="DJQ-wY-iVP"/>
                                         </connections>
