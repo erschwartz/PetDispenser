@@ -16,7 +16,7 @@ import AWSMobileHubHelper
 import Charts
 import AWSDynamoDB
 
-class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSource {
+class MainViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     @IBOutlet weak var foodEatenLabel: UILabel!
     @IBOutlet weak var yearButton: UIButton!
@@ -30,6 +30,7 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     var newUserObserver: AnyObject!
     var feedingTable: FeedingTable?
     var foodTable: FoodTable?
+    var selectedFood: Food?
     
     var feedings: [Feeding] = []
     var filteredFeedings: [Feeding] = []
@@ -131,6 +132,8 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     // MARK: DB Functions
     
     func getAllFeedings() {
+        feedings = []
+        
         if AWSIdentityManager.default().isLoggedIn {
             feedingTable?.scanWithCompletionHandler({(result: AWSDynamoDBPaginatedOutput?, error: NSError?) -> Void in
                 
@@ -256,6 +259,18 @@ class MainViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         }
         
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let selectedFoodId = feedings[indexPath.row]._foodId
+        selectedFood = foodDictionary[selectedFoodId!]
+        performSegue(withIdentifier: "foodDetail", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationViewController = segue.destination as? FoodDetailViewController {
+            destinationViewController.food = selectedFood
+        }
     }
     
     // MARK: Charts

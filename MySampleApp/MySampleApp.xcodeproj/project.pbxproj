@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		8406BAF21EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406BAF11EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift */; };
 		8406BAF61EBC0F7C003AA0CC /* FoodTableViewCellTwo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406BAF51EBC0F7C003AA0CC /* FoodTableViewCellTwo.swift */; };
+		8406BAF81EBC2E8E003AA0CC /* FoodDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8406BAF71EBC2E8E003AA0CC /* FoodDetailViewController.swift */; };
 		844692571E884202008711E1 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844692561E884202008711E1 /* InitialViewController.swift */; };
 		844692581E8859BF008711E1 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8446924C1E884117008711E1 /* OpenSans-Bold.ttf */; };
 		844692591E8859BF008711E1 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8446924D1E884117008711E1 /* OpenSans-BoldItalic.ttf */; };
@@ -188,6 +189,7 @@
 		1DD70E29FC0D6AA400000000 /* AWSDynamoDB.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AWSDynamoDB.framework; path = MySampleApp/Sdk/Aws/AWSDynamoDB.framework; sourceTree = "<group>"; };
 		8406BAF11EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedingTimeTableViewCell.swift; sourceTree = SOURCE_ROOT; };
 		8406BAF51EBC0F7C003AA0CC /* FoodTableViewCellTwo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodTableViewCellTwo.swift; sourceTree = SOURCE_ROOT; };
+		8406BAF71EBC2E8E003AA0CC /* FoodDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FoodDetailViewController.swift; sourceTree = SOURCE_ROOT; };
 		8446924C1E884117008711E1 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		8446924D1E884117008711E1 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
 		8446924E1E884117008711E1 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				1DD70E2926521A9100000000 /* Images.xcassets */,
 				1DD70E29A9F2A40100000000 /* Launch Screen.storyboard */,
 				1DD70E29011D052D00000000 /* Main.storyboard */,
+				8406BAF71EBC2E8E003AA0CC /* FoodDetailViewController.swift */,
 				8406BAF51EBC0F7C003AA0CC /* FoodTableViewCellTwo.swift */,
 				8406BAF11EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift */,
 				845A55FB1EB50B1800C8667D /* BluetoothViewController.swift */,
@@ -618,6 +621,7 @@
 				E7A30F04EBB3733200000000 /* UserPoolSignUpConfirmationViewController.swift in Sources */,
 				8406BAF21EBC0BE1003AA0CC /* FeedingTimeTableViewCell.swift in Sources */,
 				E7A30F04FBFE40D800000000 /* NoSQLTableListViewController.swift in Sources */,
+				8406BAF81EBC2E8E003AA0CC /* FoodDetailViewController.swift in Sources */,
 				E7A30F04F2BEA0CE00000000 /* User.swift in Sources */,
 				E7A30F0431018C6C00000000 /* FeedingTable.swift in Sources */,
 				E7A30F041A7F5B9A00000000 /* NoSQLTableFactory.swift in Sources */,
