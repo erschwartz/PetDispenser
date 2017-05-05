@@ -106,6 +106,14 @@ class NewUserViewControllerFour : UIViewController, UITableViewDelegate, UITable
             return
         }
         
+        if Int(petFoodWeight)! < 14 {
+            UIAlertView(title: "Pet Food Weight Too Low",
+                        message: "Please ensure the food weight you entered is at least 14 grams.",
+                        delegate: nil,
+                        cancelButtonTitle: "Ok").show()
+            return
+        }
+        
         let foodId = foods[selectedRow.row]._id
         user?._currentFoodId = foodId
         user?._currentFoodAmounts = [foodId! : petFoodWeight]

@@ -290,9 +290,17 @@ class MainViewController: UIViewController, UITableViewDelegate, UITableViewData
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let selectedFoodId = feedings[indexPath.row]._foodId
-        selectedFood = foodDictionary[selectedFoodId!]
+        
+        guard indexPath.row < feedings.count,
+            let selectedFoodId = feedings[indexPath.row]._foodId,
+            let food = foodDictionary[selectedFoodId] else {
+                tableView.deselectRow(at: indexPath, animated: true)
+                return
+        }
+        
+        self.selectedFood = food
         performSegue(withIdentifier: "foodDetail", sender: self)
+        tableView.deselectRow(at: indexPath, animated: true)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

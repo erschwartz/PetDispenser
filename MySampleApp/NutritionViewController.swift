@@ -23,6 +23,11 @@ class NutritionViewController : UIViewController {
     @IBOutlet weak var servingSizeLabel: UILabel!
     
     let doubleFormat = ".1"
+    let lightGrey = UIColor(red:0.89, green:0.89, blue:0.89, alpha:1.0)
+    let green = UIColor(red:0.09, green:0.64, blue:0.00, alpha:1.0)
+    let blue = UIColor(red:0.00, green:0.19, blue:0.73, alpha:1.0)
+    let red = UIColor(red:0.85, green:0.02, blue:0.02, alpha:1.0)
+    let orange = UIColor(red:0.99, green:0.67, blue:0.05, alpha:1.0)
     
     var feedings: [Feeding]?
     var foodDictionary: [String : Food]?
@@ -117,7 +122,7 @@ class NutritionViewController : UIViewController {
         let caloriesSuggestedEntry = PieChartDataEntry(value: caloriesSuggested - caloriesAverage, label: "")
         let calorieEntries = [caloriesConsumedEntry, caloriesSuggestedEntry]
         let calorieDataSet = PieChartDataSet(values: calorieEntries, label: "")
-        calorieDataSet.colors = [UIColor.lightGray, UIColor.blue]
+        calorieDataSet.colors = [lightGrey, blue]
         let calorieData = PieChartData(dataSet: calorieDataSet)
         caloriesChart.data = calorieData
         setChartProperties(chart: caloriesChart)
@@ -126,7 +131,7 @@ class NutritionViewController : UIViewController {
         let fatSuggestedEntry = PieChartDataEntry(value: fatSuggested - fatAverage, label: "")
         let fatEntries = [fatConsumedEntry, fatSuggestedEntry]
         let fatDataSet = PieChartDataSet(values: fatEntries, label: "")
-        fatDataSet.colors = [UIColor.lightGray, UIColor.red]
+        fatDataSet.colors = [lightGrey, red]
         let fatData = PieChartData(dataSet: fatDataSet)
         fatChart.data = fatData
         setChartProperties(chart: fatChart)
@@ -135,7 +140,7 @@ class NutritionViewController : UIViewController {
         let proteinSuggestedEntry = PieChartDataEntry(value: proteinSuggested - proteinAverage, label: "")
         let proteinEntries = [proteinConsumedEntry, proteinSuggestedEntry]
         let proteinDataSet = PieChartDataSet(values: proteinEntries, label: "")
-        proteinDataSet.colors = [UIColor.lightGray, UIColor.green]
+        proteinDataSet.colors = [lightGrey, green]
         let proteinData = PieChartData(dataSet: proteinDataSet)
         proteinChart.data = proteinData
         setChartProperties(chart: proteinChart)
@@ -144,7 +149,7 @@ class NutritionViewController : UIViewController {
         let sodiumSuggestedEntry = PieChartDataEntry(value: sodiumSuggested - sodiumAverage, label: "")
         let sodiumEntries = [sodiumConsumedEntry, sodiumSuggestedEntry]
         let sodiumDataSet = PieChartDataSet(values: sodiumEntries, label: "")
-        sodiumDataSet.colors = [UIColor.lightGray, UIColor.orange]
+        sodiumDataSet.colors = [lightGrey, orange]
         let sodiumData = PieChartData(dataSet: sodiumDataSet)
         sodiumChart.data = sodiumData
         setChartProperties(chart: sodiumChart)
